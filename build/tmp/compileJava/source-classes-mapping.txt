@@ -1,0 +1,7 @@
+gradleproject2/Main.java
+ gradleproject2.Main
+ gradleproject2.Main$1
+gradleproject2/MainGUI.java
+ gradleproject2.MainGUI
+ gradleproject2.MainGUI$1
+ gradleproject2.MainGUI$2
