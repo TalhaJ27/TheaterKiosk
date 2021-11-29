@@ -20,7 +20,7 @@
                <Image url="@logo1.png" />
             </image>
          </ImageView>
-         <Label layoutX="179.0" layoutY="147.0" text="Email">
+         <Label fx:id="label_email" layoutX="179.0" layoutY="147.0" text="Email">
             <font>
                <Font size="15.0" />
             </font>
@@ -32,7 +32,7 @@
          </Label>
          <PasswordField fx:id="tf_pass" layoutX="331.0" layoutY="180.0" opacity="0.43" />
          <TextField fx:id="tf_name" layoutX="331.0" layoutY="145.0" />
-         <Label layoutX="530.0" layoutY="6.0" text="Admin Mode" textFill="#d32828" />
+         <Label fx:id="admin_indicator" layoutX="530.0" layoutY="6.0" text="Admin Mode" textFill="#d32828" />
          <ChoiceBox fx:id="choiceBox" layoutX="14.0" layoutY="11.0" prefHeight="25.0" prefWidth="90.0" value="Customer">
             <items>
                <FXCollections fx:factory="observableArrayList">
