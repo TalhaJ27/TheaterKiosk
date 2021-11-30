@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ import java.util.List;
 public class MainApplication extends Application {
     public static List<Scene> scenes = new ArrayList<>();
     public static Stage globalStage;
+    public static LandingPage lp = new LandingPage();
 
 
     @Override
@@ -28,7 +30,7 @@ public class MainApplication extends Application {
         scenes.add(setLoginScene(stage));
         globalStage.setScene(scenes.get(0));
         globalStage.show();
-
+        Platform.runLater(() -> new LandingPage().start(new Stage()));
     }
 
     public static void main(String[] args) {
@@ -78,6 +80,7 @@ public class MainApplication extends Application {
     }
 
     public static Stage getStage(){
+        if (globalStage==null) return new Stage();
         return globalStage;
     }
 
