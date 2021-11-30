@@ -56,12 +56,16 @@ public class MainApplication extends Application {
         return  scene;
     }
 
-    public static Scene setAdminDashboardScene() throws IOException {
+    public static void setLoginScene() throws IOException {
+        globalStage.setScene(scenes.get(0));
+        globalStage.show();
+    }
 
-        // Login GUI initialization:
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("dashboard-admin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 640, 480);
-        Login_GUI_Controller controller =  fxmlLoader.getController();
+    public static Scene setAdminDashboardScene() throws IOException {
+        FXMLLoader fxmlLoader2 = new FXMLLoader(MainApplication.class.getResource("dashboard-admin.fxml"));
+        Scene scene = new Scene(fxmlLoader2.load() ,640, 480);
+        AdminDashboard_GUI_Controller controller = fxmlLoader2.getController();
+        fxmlLoader2.setController(controller);
         getScenes().add(scene);
         getStage().setScene(scenes.get(1));
         getStage().show();
@@ -69,6 +73,7 @@ public class MainApplication extends Application {
     }
 
     public static List<Scene> getScenes(){
+
         return scenes;
     }
 

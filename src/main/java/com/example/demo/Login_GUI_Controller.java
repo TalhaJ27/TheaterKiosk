@@ -44,8 +44,8 @@ public class Login_GUI_Controller {
         System.out.println(tf_name.getText());
         System.out.println(tf_pass.getText());
 
-        if (    tf_name.getText().compareTo("a")==0 &&
-                tf_pass.getText().compareTo("a")==0 ){
+        if (    tf_name.getText().compareTo("admin")==0 &&
+                tf_pass.getText().compareTo("admin")==0 ){
             MainApplication.setAdminDashboardScene();
         }
     }
