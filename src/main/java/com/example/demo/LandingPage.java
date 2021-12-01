@@ -31,39 +31,44 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class LandingPage extends Application {
-
-
-    public class ClickHandler implements EventHandler  {
-
-        @Override
-        public void handle(Event event) {
-            System.out.println("Click Event on Posters");;
-
-
-        }
-
-
-    }
-
+    static Stage globalRefStage;
     StackPane root;
     ImageView current;
     ImageView next;
     int width = 680;
     int height = 720;
 
+    public static Stage getPrimaryStage() {
+        return globalRefStage;
+    }
+
+    public class ClickHandler implements EventHandler  {
+        Stage refStage;
+        @Override
+        public void handle(Event event) {
+            System.out.println("Click Event on Posters: "+ event.getTarget().toString());
+            refStage.setIconified(true); // minimize the stage
+
+        }
+
+        ClickHandler (Stage s){
+            refStage = s ;
+        }
+
+    }
+
+
+
 
 
 
     @Override
     public void start(Stage primaryStage) {
+        globalRefStage = primaryStage;
         root = new StackPane();
-
         root.setStyle("-fx-background-color: #000000;");
 
         Scene scene = new Scene(root, width, height);
-
-
-
 
         primaryStage.setTitle("Movies");
         primaryStage.setScene(scene);
@@ -75,12 +80,12 @@ public class LandingPage extends Application {
         Image image = getNextImage();
 
         if (image != null)
-            startImage(image);
+            startImage(image, primaryStage);
 
     }
     ScannerLoader loader;
 
-    public void startImage(Image image) {
+    public void startImage(Image image, Stage stage) {
         ObservableList<Node> c = root.getChildren();
 
 
@@ -97,8 +102,9 @@ public class LandingPage extends Application {
         next.setFitHeight(width);
         next.setPreserveRatio(true);
         next.setOpacity(0);
-        ClickHandler clickHandler = new ClickHandler();
+        ClickHandler clickHandler = new ClickHandler(stage);
         next.setOnMouseClicked(clickHandler);
+
 
         c.add(next);
 
@@ -131,7 +137,7 @@ public class LandingPage extends Application {
                 Image image = getNextImage();
 
                 if (image != null)
-                    startImage(image);
+                    startImage(image, stage);
             }
         });
 
