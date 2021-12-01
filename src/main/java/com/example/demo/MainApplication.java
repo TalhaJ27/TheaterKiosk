@@ -7,27 +7,37 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class MainApplication extends Application {
     public static List<Scene> scenes = new ArrayList<>();
     public static Stage globalStage;
-    public static LandingPage lp = new LandingPage();
     public static BookingService bookingService = BookingService.getInstance();
+    Map<String, Customer> Customers;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        // Stating transanction type
+        /* Elvis Moyolema: Test Cases */
+        // Stating transaction type
         bookingService.setTransactionType("c");
-
         // Giving number of tickets and standard tickets (s)
         bookingService.getTicketPrice(3, "s");
-
         // Since we are done with the transaction we can end it
         System.out.println(bookingService.endTransaction());
+
+
+
+        /* Md Rahman: Test Cases */
+        Database_Adapter database = new Database_Adapter();
+        Map<String, Customer> Customers = database.initializeDatabase();
+        Map<String, ArrayList<Booking>> Bookings = database.initializeBookingsFromDatabase();
+
+        // System.out.printf(Bookings.toString());
 
         launch();
     }
@@ -45,8 +55,6 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        // Database initialization:
-
 
 
         //GUI setup:

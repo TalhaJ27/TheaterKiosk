@@ -46,9 +46,8 @@ public class LandingPage extends Application {
         Stage refStage;
         @Override
         public void handle(Event event) {
-            System.out.println("Click Event on Posters: "+ event.getTarget().toString());
+            System.out.println("Click Event on Posters , Animation Stopped");
             refStage.setIconified(true); // minimize the stage
-
         }
 
         ClickHandler (Stage s){
