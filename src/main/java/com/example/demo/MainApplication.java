@@ -16,12 +16,36 @@ public class MainApplication extends Application {
     public static List<Scene> scenes = new ArrayList<>();
     public static Stage globalStage;
     public static LandingPage lp = new LandingPage();
+    public static BookingService bookingService = BookingService.getInstance();
+
+    public static void main(String[] args) {
+
+        // Stating transanction type
+        bookingService.setTransactionType("c");
+
+        // Giving number of tickets and standard tickets (s)
+        bookingService.getTicketPrice(3, "s");
+
+        // Since we are done with the transaction we can end it
+        System.out.println(bookingService.endTransaction());
+
+        launch();
+    }
+
+
+
+
+
+
+
+
+
+
 
 
     @Override
     public void start(Stage stage) throws IOException {
         // Database initialization:
-
 
 
 
@@ -33,9 +57,7 @@ public class MainApplication extends Application {
         Platform.runLater(() -> new LandingPage().start(new Stage()));
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
+
 
     public static Scene setLoginScene(Stage stage) throws IOException {
         // Login GUI initialization:
