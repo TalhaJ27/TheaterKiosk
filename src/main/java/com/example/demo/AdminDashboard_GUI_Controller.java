@@ -12,7 +12,6 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 public class AdminDashboard_GUI_Controller {
     @FXML
     Label lbl_customerEmail;
