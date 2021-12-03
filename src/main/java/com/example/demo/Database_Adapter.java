@@ -1,32 +1,79 @@
 package com.example.demo;
 
+import javafx.application.Application;
+import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
-public class Database_Adapter {
-    File customerFile = new File("src/main/resources/com/example/demo/MockDatabase/customers.txt");
-    File bookingFile = new File("src/main/resources/com/example/demo/MockDatabase/bookings.txt");
-    public Map<String, String> passwordMap = new HashMap<>();
+abstract class Database_Adapter {
+    static final File customerFile = new File("src/main/resources/com/example/demo/MockDatabase/customers.txt");
+    static File bookingFile = new File("src/main/resources/com/example/demo/MockDatabase/bookings.txt");
+    public static Map<String, String> passwordMap = new HashMap<>();
+    private static Set<String> email = new HashSet<>();
+    public static Map<String, Customer> map_id_customer = new HashMap<>();
+    public static Map<String, Customer> map_email_customer = new HashMap<>();
+
+
+
 
 
     public Database_Adapter() throws FileNotFoundException {
     }
 
+    public static Map<String, Customer> getMap_email_customer() {
+        return map_email_customer;
+    }
+    public static Map<String, String> getPasswordMap() {
+        return passwordMap;
+    }
 
-    public Map<String, Customer>  initializeDatabase() throws FileNotFoundException {
-        Map<String, Customer> map = new HashMap<>();
+    public static Map<String, Customer> getMap() {
+        return map_id_customer;
+    }
+
+    public static Map<String, Customer>  initializeCustomers() throws FileNotFoundException {
         Scanner in = new Scanner(customerFile);
         while (in.hasNextLine()) {
             String line = in.nextLine();
             Customer p =  createCustomer(line);
-            map.put(p.getId(), p);
+            map_id_customer.put(p.getId(), p);
+            map_email_customer.put(p.getEmail(), p);
             passwordMap.put(p.getEmail(), p.getPassword() );
+            email.add(p.getEmail());
         }
-        return map;
+        return map_id_customer;
     }
 
-    public Map<String, ArrayList<Booking>>  initializeBookingsFromDatabase() throws FileNotFoundException {
+    public void  updateCustomers(Map<String, Customer> customerMap) throws FileNotFoundException {
+        File fOld = new File("src/main/resources/com/example/demo/MockDatabase/customers.txt");
+        fOld.delete();
+        File fNew = new File("src/main/resources/com/example/demo/MockDatabase/customers.txt");
+        try {
+            FileWriter f2 = new FileWriter(fNew, false);
+            for (Map.Entry<String,Customer> entry : customerMap.entrySet()){
+                f2.write(entry.getKey());
+                f2.write(", ");
+                f2.write(entry.getValue().getName());
+                f2.write(", ");
+                f2.write(entry.getValue().getEmail());
+                f2.write(", ");
+                f2.write(entry.getValue().getPhone());
+                f2.write("\n");
+            }
+            f2.close();
+        } catch (IOException e) {
+            System.out.println(e.toString());
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public static Map<String, ArrayList<Booking>>  initializeBookings() throws FileNotFoundException {
         Map<String, ArrayList<Booking>> map = new HashMap<>();
         // <CustomerId, array of Bookings>
         Scanner in = new Scanner(bookingFile);
@@ -51,12 +98,12 @@ public class Database_Adapter {
 
 
 
-    public Customer createCustomer(String line){
+    public static Customer createCustomer(String line){
         String[] list = line.split(", ");
         Customer newCustomer = new Customer(list[0], list[1], list[2], list[3]);
         return newCustomer;
     }
-    public Booking createBooking(String line){
+    public static Booking createBooking(String line){
         String[] list = line.split(", ");
         Booking newBooking = new Booking(list[0], list[1], list[2]);
         return newBooking;

@@ -12,13 +12,9 @@ import java.io.IOException;
 
 
 public class AdminDashboard_GUI_Controller {
-
-
-
     @FXML
-    protected void onHelloButtonClick() {
-        System.out.println("test1");
-    }
+    Label lbl_customerEmail;
+
 
     @FXML
     protected void onLogoutButtonClick(Event e) throws IOException {
@@ -26,6 +22,11 @@ public class AdminDashboard_GUI_Controller {
         MainApplication.setLoginScene();
     }
 
+    @FXML
+    protected void onCustomerLogoutButtonClick(Event e) throws IOException {
+        System.out.println("Customer Logged out");
+        MainApplication.setLoginScene();
+    }
 
 
 }

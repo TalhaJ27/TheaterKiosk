@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -11,44 +12,111 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.UUID;
+import java.util.jar.Manifest;
+
+import static com.example.demo.AccountService.createAccount;
 
 
 public class Login_GUI_Controller {
-    @FXML
-    private Pane pane_main;
     @FXML
     private TextField tf_name;
     @FXML
     private TextField tf_pass;
     @FXML
-    private ImageView image_logo;
-    @FXML
     private Label admin_indicator;
-
     @FXML
     private Label label_email;
-
-
     @FXML
     private ChoiceBox choiceBox;
-
-
     @FXML
-    protected void onHelloButtonClick() {
-        System.out.println("test1");
-    }
+    private TextField tf_signup_name;
+    @FXML
+    private TextField tf_signup_password;
+    @FXML
+    private TextField tf_signup_email;
+    @FXML
+    private TextField tf_signup_phone;
+
+
+//    @FXML
+//    protected void onHelloButtonClick() {
+//        System.out.println("test1");
+//    }
 
     @FXML
     protected void onOkButtonClick(Event e) throws IOException {
-        System.out.println("onOkButtonClick");
         System.out.println(tf_name.getText());
         System.out.println(tf_pass.getText());
 
-        if (    tf_name.getText().compareTo("admin")==0 &&
+        if (    choiceBox.getSelectionModel().getSelectedIndex()== 0 &&
+                tf_name.getText().compareTo("admin")==0 &&
                 tf_pass.getText().compareTo("admin")==0 ){
             MainApplication.setAdminDashboardScene();
         }
+
+        String loginEmail = tf_name.getText();
+        String loginPass = tf_pass.getText();
+
+        if (Database_Adapter.getPasswordMap().containsKey(loginEmail)){
+            String customerName = Database_Adapter.getMap_email_customer().get(loginEmail).getName();
+            MainApplication.setCustomerDashboardScene(customerName);
+        };
+
+
+
     }
+    @FXML
+    protected void onSignupClick(Event e) throws IOException{
+        MainApplication.setSignupScene();
+    }
+
+    @FXML
+    protected void onLoginLinkClick(Event e) throws IOException{
+        MainApplication.setLoginScene();
+    }
+
+    @FXML
+    protected void onSignupConfirmClick(Event e) throws IOException{
+        UUID tempUUID = UUID.randomUUID();
+        String uuid = tempUUID.toString();
+
+        try {
+            System.out.println("Wants account with details: "+ uuid  + tf_signup_name.getText() + " : " +tf_signup_email.getText()+ " : " +tf_signup_phone.getText());
+            Customer c = createAccount(uuid,  tf_signup_name.getText(), tf_signup_email.getText(), tf_signup_phone.getText());
+            MainApplication.addToCustomerMap(c);
+        }
+        catch(Exception err) {
+            System.err.println(err.toString());
+        }
+
+        MainApplication.setLoginScene();
+    }
+
+
+    @FXML
+    protected void onDebugClick(Event e) throws IOException{
+       //  System.out.println("Debugging Log: " + MainApplication.Customers.toString());//
+        System.out.println("Debugging Log: " + Database_Adapter.getMap_email_customer().toString());
+    }
+
+//    @FXML
+//    protected void onHelloButtonClick() {
+//        System.out.println("test1");
+//    }
+//
+//    @FXML
+//    protected void onLogoutButtonClick(Event e) throws IOException {
+//        System.out.println("Admin Logged out");
+//        MainApplication.setLoginScene();
+//    }
+
+
+
+
+
+
 
     public Label getText_admin_indicator() {
        return admin_indicator;

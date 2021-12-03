@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
@@ -20,7 +18,7 @@
                <Image url="@logo1.png" />
             </image>
          </ImageView>
-         <Label fx:id="label_email" layoutX="179.0" layoutY="147.0" text="Email">
+         <Label fx:id="label_email" layoutX="179.0" layoutY="106.0" text="Email">
             <font>
                <Font size="15.0" />
             </font>
@@ -30,28 +28,29 @@
                <Font size="15.0" />
             </font>
          </Label>
-         <PasswordField fx:id="tf_pass" layoutX="331.0" layoutY="180.0" opacity="0.43" />
-         <TextField fx:id="tf_name" layoutX="331.0" layoutY="145.0" />
-         <Label fx:id="admin_indicator" layoutX="530.0" layoutY="6.0" text="Admin Mode" textFill="#d32828" />
-         <ChoiceBox fx:id="choiceBox" layoutX="14.0" layoutY="11.0" prefHeight="25.0" prefWidth="90.0" value="Customer">
-            <items>
-               <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="Admin" />
-                  <String fx:value="Customer" />
-                  <String fx:value="Guest" />
-               </FXCollections>
-            </items>
-         </ChoiceBox>
-          <Button fx:id="testBtn" layoutX="245.0" layoutY="227.0" onAction="#onOkButtonClick" prefHeight="42.0" prefWidth="111.0" text="Login">
+         <PasswordField fx:id="tf_signup_password" layoutX="314.0" layoutY="180.0" opacity="0.43" />
+         <TextField fx:id="tf_signup_email" layoutX="314.0" layoutY="104.0" />
+          <Button fx:id="btn_signup" layoutX="245.0" layoutY="227.0" onAction="#onSignupConfirmClick" prefHeight="42.0" prefWidth="111.0" text="SignUp">
             <font>
                <Font size="19.0" />
             </font>
          </Button>
-         <Button fx:id="btn_debug" layoutX="538.0" layoutY="253.0" mnemonicParsing="false" onAction="#onDebugClick" text="Debug" />
+         <Label layoutX="180.0" layoutY="68.0" text="Name">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <TextField fx:id="tf_signup_name" layoutX="314.0" layoutY="66.0" />
+         <TextField fx:id="tf_signup_phone" layoutX="314.0" layoutY="142.0" />
+         <Label layoutX="179.0" layoutY="144.0" text="Phone">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
       </children>
       <effect>
          <Glow />
       </effect>
    </Pane>
-   <Hyperlink fx:id="link_signup" onAction="#onSignupClick" onMouseClicked="#onSignupClick" text="Sign Up" />
+   <Hyperlink fx:id="link_login" onMouseClicked="#onLoginLinkClick" text="Sign In" />
 </VBox>

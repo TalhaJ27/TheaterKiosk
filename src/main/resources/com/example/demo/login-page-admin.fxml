@@ -42,14 +42,16 @@
                </FXCollections>
             </items>
          </ChoiceBox>
-          <Button fx:id="testBtn" layoutX="254.0" layoutY="234.0" onAction="#onOkButtonClick" onKeyPressed="#onHelloButtonClick" prefHeight="42.0" prefWidth="111.0" text="Login">
+          <Button fx:id="testBtn" layoutX="245.0" layoutY="227.0" onAction="#onOkButtonClick" prefHeight="42.0" prefWidth="111.0" text="Login">
             <font>
                <Font size="19.0" />
             </font>
          </Button>
+         <Button fx:id="btn_debug" layoutX="538.0" layoutY="253.0" mnemonicParsing="false" onAction="#onDebugClick" text="Debug" />
       </children>
       <effect>
          <Glow />
       </effect>
    </Pane>
+   <Hyperlink fx:id="link_signup" onAction="#onSignupClick" onMouseClicked="#onSignupClick" text="Sign Up" />
 </VBox>
