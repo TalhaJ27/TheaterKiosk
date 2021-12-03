@@ -2,9 +2,9 @@ package com.example.demo;
 
 
 public class Booking {
-    Schedule schedule;
-    String customerId;
-    String showId;
+    public Schedule schedule;
+    public String customerId;
+    public String showId;
 
     public Booking( String customerId, String scheduleString, String showId) {
         this.schedule = new Schedule(scheduleString);
@@ -48,14 +48,7 @@ public class Booking {
 
         @Override
         public String toString() {
-            return "Schedule{" +
-                    "day='" + day + '\'' +
-                    ", month='" + month + '\'' +
-                    ", year='" + year + '\'' +
-                    ", hour='" + hour + '\'' +
-                    ", minute='" + minute + '\'' +
-                    ", am_pm='" + am_pm + '\'' +
-                    '}';
+            return "Schedule{"+ month + '-' + day + '-' + year + " :: " + hour + ':' + minute + ':' + am_pm + '}';
         }
 
         public String getDay() {

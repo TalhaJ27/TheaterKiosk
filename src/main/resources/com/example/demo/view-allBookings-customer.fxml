@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.CardPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.AdminDashboard_GUI_Controller">
+   <children>
+      <Button layoutX="29.0" layoutY="14.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="70.0" text="Back">
+         <font>
+            <Font size="9.0" />
+         </font></Button>
+      <TextArea fx:id="text" layoutX="29.0" layoutY="66.0" prefHeight="126.0" prefWidth="543.0" />
+      <CardPane fx:id="listView" layoutX="22.0" layoutY="209.0" prefHeight="183.0" prefWidth="551.0">
+          <Label style="-fx-padding:10;" text="label1" />
+          <Label style="-fx-padding:10;" text="label2" />
+          <Label style="-fx-padding:10;" text="label3" />
+      </CardPane>
+   </children>
+</AnchorPane>

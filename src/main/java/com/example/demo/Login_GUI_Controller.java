@@ -3,10 +3,7 @@ package com.example.demo;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -61,12 +58,18 @@ public class Login_GUI_Controller {
 
         if (Database_Adapter.getPasswordMap().containsKey(loginEmail)){
             String customerName = Database_Adapter.getMap_email_customer().get(loginEmail).getName();
+            Customer loginCustomer = Database_Adapter.getMap_email_customer().get(loginEmail);
+            MainApplication.setLoggedInUser(loginCustomer);
             MainApplication.setCustomerDashboardScene(customerName);
-        };
 
-
-
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Account Not Found");
+            a.setContentText("No account found! Please Try again, or SignUp ");
+            a.show();
+        }
     }
+
     @FXML
     protected void onSignupClick(Event e) throws IOException{
         MainApplication.setSignupScene();
@@ -86,6 +89,9 @@ public class Login_GUI_Controller {
             System.out.println("Wants account with details: "+ uuid  + tf_signup_name.getText() + " : " +tf_signup_email.getText()+ " : " +tf_signup_phone.getText());
             Customer c = createAccount(uuid,  tf_signup_name.getText(), tf_signup_email.getText(), tf_signup_phone.getText());
             MainApplication.addToCustomerMap(c);
+            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+            a.setContentText("Account Created !");
+            a.show();
         }
         catch(Exception err) {
             System.err.println(err.toString());
@@ -100,21 +106,6 @@ public class Login_GUI_Controller {
        //  System.out.println("Debugging Log: " + MainApplication.Customers.toString());//
         System.out.println("Debugging Log: " + Database_Adapter.getMap_email_customer().toString());
     }
-
-//    @FXML
-//    protected void onHelloButtonClick() {
-//        System.out.println("test1");
-//    }
-//
-//    @FXML
-//    protected void onLogoutButtonClick(Event e) throws IOException {
-//        System.out.println("Admin Logged out");
-//        MainApplication.setLoginScene();
-//    }
-
-
-
-
 
 
 

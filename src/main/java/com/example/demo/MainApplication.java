@@ -17,7 +17,9 @@ import java.util.Map;
 
 
 public class MainApplication extends Application {
+    public static Customer loggedInUser = null;
     public static Map<String, Customer> Customers;
+    public static Map<String, ArrayList<Booking>> Bookings ;
     public static Map<String,Scene> scenes = new HashMap<>();
     public static Stage globalStage;
     public static BookingService bookingService = BookingService.getInstance();
@@ -40,7 +42,7 @@ public class MainApplication extends Application {
 
         /* Md Rahman: Test Cases */
         Customers = Database_Adapter.initializeCustomers();
-        Map<String, ArrayList<Booking>> Bookings = Database_Adapter.initializeBookings();
+        Bookings = Database_Adapter.initializeBookings();
 
         //System.out.println("Customer Map:\n");
         //System.out.println(Customers);
@@ -60,6 +62,8 @@ public class MainApplication extends Application {
 
         launch();
     }
+
+
 
 
     @Override
@@ -147,6 +151,21 @@ public class MainApplication extends Application {
         return  scene;
     }
 
+    public static Scene setViewCustomerBookingsScene() throws IOException {
+        FXMLLoader fxmlLoader5 = new FXMLLoader(MainApplication.class.getResource("view-allBookings-customer.fxml"));
+        Scene scene = new Scene(fxmlLoader5.load() ,640, 480);
+        AdminDashboard_GUI_Controller controller = new AdminDashboard_GUI_Controller();
+        controller = fxmlLoader5.getController();
+        controller.text.setText("Something");
+        fxmlLoader5.setController(controller);
+        controller.setBookingArray(Bookings.get(loggedInUser.getId()));
+        controller.prepareBookingArray();
+        getScenes().put("allBookings-customer",scene);
+        getStage().setScene(scenes.get("allBookings-customer"));
+        getStage().show();
+        return  scene;
+    }
+
 
 
     public static Map<String, Scene> getScenes(){
@@ -199,6 +218,18 @@ public class MainApplication extends Application {
             e.printStackTrace();
         }
         Database_Adapter.initializeCustomers();
+    }
+
+    public static Customer getLoggedInUser() {
+        return loggedInUser;
+    }
+
+    public static void setLoggedInUser(Customer c) {
+        loggedInUser = c;
+    }
+
+    public static void logoutUser(){
+        loggedInUser = null;
     }
 
 }

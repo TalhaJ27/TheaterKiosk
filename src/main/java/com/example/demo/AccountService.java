@@ -15,6 +15,18 @@ public class AccountService {
         return newCustomer;
     }
 
+    public static Customer getLoggedIn() {
+        return loggedIn;
+    }
+
+    public static void setLoggedIn(Customer loggedIn) {
+        AccountService.loggedIn = loggedIn;
+    }
+
+    private static Customer loggedIn;
+
+
+
 
 
 

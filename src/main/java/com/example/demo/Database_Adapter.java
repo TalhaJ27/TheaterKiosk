@@ -12,10 +12,11 @@ import java.util.*;
 abstract class Database_Adapter {
     static final File customerFile = new File("src/main/resources/com/example/demo/MockDatabase/customers.txt");
     static File bookingFile = new File("src/main/resources/com/example/demo/MockDatabase/bookings.txt");
-    public static Map<String, String> passwordMap = new HashMap<>();
-    private static Set<String> email = new HashSet<>();
-    public static Map<String, Customer> map_id_customer = new HashMap<>();
-    public static Map<String, Customer> map_email_customer = new HashMap<>();
+    public static Map<String, String> passwordMap = new HashMap<>(); // email to password map
+    private static Set<String> email = new HashSet<>();  // this will help avoid duplicate account creation
+    public static Map<String, Customer> map_id_customer = new HashMap<>();  //helps find a Customer object with id
+    public static Map<String, Customer> map_email_customer = new HashMap<>();//helps find a Customer object with email
+
 
 
 
@@ -47,6 +48,8 @@ abstract class Database_Adapter {
         }
         return map_id_customer;
     }
+
+
 
     public void  updateCustomers(Map<String, Customer> customerMap) throws FileNotFoundException {
         File fOld = new File("src/main/resources/com/example/demo/MockDatabase/customers.txt");
@@ -83,13 +86,10 @@ abstract class Database_Adapter {
             String[] list = line.split(", ");
             Booking currentBooking =  createBooking(line);
 
-            if (map.containsKey(list[0])) {
-                map.get(list[0]).add(currentBooking);
-            }
-            else {
+            if (!map.containsKey(list[0])) {
                 map.put(list[0], new ArrayList<Booking>());
-                map.get(list[0]).add(currentBooking);
             }
+            map.get(list[0]).add(currentBooking);
 
         }
         System.out.println("============= Done! Fetching Bookings =======");

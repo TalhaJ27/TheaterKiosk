@@ -5,6 +5,7 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
 <VBox alignment="CENTER" prefHeight="481.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Login_GUI_Controller">
@@ -13,36 +14,46 @@
     </padding>
    <Pane fx:id="pane_main" prefHeight="283.0" prefWidth="600.0">
       <children>
-         <ImageView fx:id="image_logo" fitHeight="54.0" fitWidth="149.0" layoutX="239.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="image_logo" fitHeight="100.0" fitWidth="500.0" layoutX="239.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" x="-50.0" y="-110.0">
             <image>
-               <Image url="@logo1.png" />
+               <Image url="@images/logo1.png" />
             </image>
+            <effect>
+               <DropShadow blurType="GAUSSIAN">
+                  <color>
+                     <Color green="0.014440433122217655" blue="1.0" opacity="0.25999999046325684" />
+                  </color>
+               </DropShadow>
+            </effect>
+            <viewport>
+               <Rectangle2D />
+            </viewport>
          </ImageView>
-         <Label fx:id="label_email" layoutX="179.0" layoutY="106.0" text="Email">
+         <Label fx:id="label_email" layoutX="157.0" layoutY="106.0" text="Email">
             <font>
                <Font size="15.0" />
             </font>
          </Label>
-         <Label layoutX="179.0" layoutY="182.0" text="Password">
+         <Label layoutX="158.0" layoutY="182.0" text="Password">
             <font>
                <Font size="15.0" />
             </font>
          </Label>
-         <PasswordField fx:id="tf_signup_password" layoutX="314.0" layoutY="180.0" opacity="0.43" />
-         <TextField fx:id="tf_signup_email" layoutX="314.0" layoutY="104.0" />
           <Button fx:id="btn_signup" layoutX="245.0" layoutY="227.0" onAction="#onSignupConfirmClick" prefHeight="42.0" prefWidth="111.0" text="SignUp">
             <font>
                <Font size="19.0" />
             </font>
          </Button>
-         <Label layoutX="180.0" layoutY="68.0" text="Name">
+         <Label layoutX="158.0" layoutY="68.0" text="Name">
             <font>
                <Font size="15.0" />
             </font>
          </Label>
-         <TextField fx:id="tf_signup_name" layoutX="314.0" layoutY="66.0" />
-         <TextField fx:id="tf_signup_phone" layoutX="314.0" layoutY="142.0" />
-         <Label layoutX="179.0" layoutY="144.0" text="Phone">
+         <TextField fx:id="tf_signup_name" layoutX="314.0" layoutY="66.0" prefHeight="25.0" prefWidth="198.0" />
+         <TextField fx:id="tf_signup_email" layoutX="314.0" layoutY="104.0" prefHeight="25.0" prefWidth="198.0" />
+         <TextField fx:id="tf_signup_phone" layoutX="314.0" layoutY="142.0" prefHeight="25.0" prefWidth="198.0" />
+         <PasswordField fx:id="tf_signup_password" layoutX="314.0" layoutY="180.0" opacity="0.43" prefHeight="25.0" prefWidth="198.0" />
+         <Label layoutX="156.0" layoutY="144.0" text="Phone">
             <font>
                <Font size="15.0" />
             </font>
