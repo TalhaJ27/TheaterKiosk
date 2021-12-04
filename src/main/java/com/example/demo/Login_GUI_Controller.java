@@ -103,8 +103,7 @@ public class Login_GUI_Controller {
 
     @FXML
     protected void onDebugClick(Event e) throws IOException{
-       //  System.out.println("Debugging Log: " + MainApplication.Customers.toString());//
-        System.out.println("Debugging Log: " + Database_Adapter.getMap_email_customer().toString());
+        System.out.println("Debugging Log: " + MainApplication.currentMovies.size());
     }
 
 

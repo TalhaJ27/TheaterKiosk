@@ -17,6 +17,7 @@ import java.util.Map;
 
 
 public class MainApplication extends Application {
+    public static Map<String,Movie> currentMovies;
     public static Customer loggedInUser = null;
     public static Map<String, Customer> Customers;
     public static Map<String, ArrayList<Booking>> Bookings ;
@@ -43,21 +44,9 @@ public class MainApplication extends Application {
         /* Md Rahman: Test Cases */
         Customers = Database_Adapter.initializeCustomers();
         Bookings = Database_Adapter.initializeBookings();
-
-        //System.out.println("Customer Map:\n");
-        //System.out.println(Customers);
-        //System.out.println("Booking Map:\n");
-        //System.out.println(Bookings);
+        currentMovies = Database_Adapter.initializeMovies();
 
 
-
-
-        /*
-        System.out.println("=========== Trying to Update now ===========");
-        Customer newCust = new Customer("88947252-f12f-4129-8135-1a6b23510000", "Tanner Meyes", "Tanner@noMail.com", "911-911-9191");
-        Customers.put("88947252-f12f-4129-8135-1a6b23510000", newCust );
-        database.updateCustomers(Customers);
-         */
 
 
         launch();
@@ -72,8 +61,8 @@ public class MainApplication extends Application {
 
         //GUI setup:
         globalStage = stage;
-        scenes.put("login",setLoginScene(stage));
-        globalStage.setScene(scenes.get("login"));
+        scenes.put("MainApp",setLoginScene(stage));
+        globalStage.setScene(scenes.get("MainApp"));
         globalStage.show();
         Platform.runLater(() -> new LandingPage().start(new Stage()));
     }
@@ -167,13 +156,59 @@ public class MainApplication extends Application {
     }
 
 
+    public static Scene setCreateBookingScene () throws IOException {
+        FXMLLoader fxmlLoader6 = new FXMLLoader(MainApplication.class.getResource("newBooking-customer.fxml"));
+        Scene scene = new Scene(fxmlLoader6.load() ,640, 480);
+        AdminDashboard_GUI_Controller controller = new AdminDashboard_GUI_Controller();
+        controller = fxmlLoader6.getController();
+        fxmlLoader6.setController(controller);
+        getScenes().put("newBooking-customer",scene);
+        getStage().setScene(scenes.get("newBooking-customer"));
+        getStage().show();
+        return  scene;
+    }
+
+    public static void setConfirmBookingScene(Map<String, Integer> cart) throws IOException {
+        FXMLLoader fxmlLoader7 = new FXMLLoader(MainApplication.class.getResource("confirmBooking-customer.fxml"));
+        Scene scene = new Scene(fxmlLoader7.load() ,640, 480);
+        AdminDashboard_GUI_Controller controller = new AdminDashboard_GUI_Controller();
+        controller = fxmlLoader7.getController();
+        fxmlLoader7.setController(controller);
+
+        StringBuilder   movieColumnText = new StringBuilder(),
+                        scheduleColumnText = new StringBuilder(),
+                        qtyColumnText = new StringBuilder(),
+                        priceColumnText = new StringBuilder();
+
+        for (Map.Entry<String,Integer> entry : cart.entrySet()) {
+            Movie currentMovie = currentMovies.get(entry.getKey());
+            movieColumnText.append(currentMovie.getTitle());
+            movieColumnText.append(System.getProperty("line.separator"));
+            scheduleColumnText.append(currentMovie.getSchedule());
+            scheduleColumnText.append(System.getProperty("line.separator"));
+            qtyColumnText.append(entry.getValue().toString());
+            qtyColumnText.append(System.getProperty("line.separator"));
+            priceColumnText.append("$ 39.99");
+            priceColumnText.append(System.getProperty("line.separator"));
+        }
+        controller.movieColumn.setText(movieColumnText.toString());
+        controller.scheduleColumn.setText(scheduleColumnText.toString());
+        controller.qtyColumn.setText(qtyColumnText.toString());
+        controller.priceColumn.setText(priceColumnText.toString());
+
+        // To-do:
+            // => calculate total, netTotal
+            // => add promo function to show discount
+
+
+        getScenes().put("confirmBooking-customer",scene);
+        getStage().setScene(scenes.get("confirmBooking-customer"));
+        getStage().show();
+    }
 
     public static Map<String, Scene> getScenes(){
         return scenes;
     }
-
-
-
 
     public static Stage getStage(){
         if (globalStage==null) return new Stage();
@@ -183,7 +218,6 @@ public class MainApplication extends Application {
     public static Database_Adapter getDatabase(){
         return database;
     }
-
 
     public static Map<String, Customer> getCustomerMap(){
         return Customers;
@@ -218,6 +252,30 @@ public class MainApplication extends Application {
             e.printStackTrace();
         }
         Database_Adapter.initializeCustomers();
+    }
+
+    public static void  updateBookings( Map<String, ArrayList<Booking>> Bookings) throws FileNotFoundException {
+        File fOld = new File("src/main/resources/com/example/demo/MockDatabase/bookings.txt");
+        fOld.delete();
+        File fNew = new File("src/main/resources/com/example/demo/MockDatabase/bookings.txt");
+        try {
+            FileWriter f2 = new FileWriter(fNew, false);
+            for (Map.Entry<String,ArrayList<Booking>> entry : Bookings.entrySet()){
+                for (Booking b : entry.getValue()) {
+                    f2.write(entry.getKey());
+                    f2.write(", ");
+                    f2.write(b.getScheduleString());
+                    f2.write(", ");
+                    f2.write(b.getShowId());
+                    f2.write("\n");
+                }
+            }
+            f2.close();
+        } catch (IOException e) {
+            System.out.println(e.toString());
+            e.printStackTrace();
+        }
+        Database_Adapter.initializeBookings();
     }
 
     public static Customer getLoggedInUser() {

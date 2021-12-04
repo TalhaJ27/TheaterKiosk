@@ -4,6 +4,11 @@ package com.example.demo;
 public class Booking {
     public Schedule schedule;
     public String customerId;
+
+    public String getShowId() {
+        return showId;
+    }
+
     public String showId;
 
     public Booking( String customerId, String scheduleString, String showId) {
@@ -16,6 +21,10 @@ public class Booking {
     public String toString() {
         return "\nBooking{" + "schedule=" + schedule + ", customerId='" + customerId + '\'' + ", showId='" + showId + '\'' + "}\n";
     }
+
+     public String getScheduleString(){
+         return schedule.toString();
+     }
 
     private class Schedule {
         String day;
@@ -48,7 +57,7 @@ public class Booking {
 
         @Override
         public String toString() {
-            return "Schedule{"+ month + '-' + day + '-' + year + " :: " + hour + ':' + minute + ':' + am_pm + '}';
+            return  month + '-' + day + '-' + year + "-" + hour + '-' + minute + '-' + am_pm;
         }
 
         public String getDay() {

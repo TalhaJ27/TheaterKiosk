@@ -11,11 +11,13 @@ import java.util.*;
 
 abstract class Database_Adapter {
     static final File customerFile = new File("src/main/resources/com/example/demo/MockDatabase/customers.txt");
-    static File bookingFile = new File("src/main/resources/com/example/demo/MockDatabase/bookings.txt");
+    static final File bookingFile = new File("src/main/resources/com/example/demo/MockDatabase/bookings.txt");
+    static final File movieFile = new File("src/main/resources/com/example/demo/MockDatabase/movies.txt");
     public static Map<String, String> passwordMap = new HashMap<>(); // email to password map
     private static Set<String> email = new HashSet<>();  // this will help avoid duplicate account creation
     public static Map<String, Customer> map_id_customer = new HashMap<>();  //helps find a Customer object with id
     public static Map<String, Customer> map_email_customer = new HashMap<>();//helps find a Customer object with email
+    public static Map<String, Movie> map_movieid_schedule = new HashMap<>();  //helps find a schedule with movie id
 
 
 
@@ -49,6 +51,15 @@ abstract class Database_Adapter {
         return map_id_customer;
     }
 
+    public static Map<String, Movie> initializeMovies() throws FileNotFoundException {
+        Scanner in = new Scanner(movieFile);
+        while (in.hasNextLine()) {
+            String line = in.nextLine();
+            Movie m =  new Movie(line);
+            map_movieid_schedule.put(m.getId(), m);
+        }
+        return map_movieid_schedule;
+    }
 
 
     public void  updateCustomers(Map<String, Customer> customerMap) throws FileNotFoundException {
@@ -111,37 +122,3 @@ abstract class Database_Adapter {
 
 }
 
-
-/*
-
-
-class Main{
-  public static void main(String args[]) throws FileNotFoundException {
-
-		myBST tree = new myBST();
-		LoadCustomers (tree);
-
-
-
-	}
-
-
-public static void LoadCustomers (myBST tree) throws FileNotFoundException {  // so this function is reading line-by-line
-                   File inputFile = new File("TestFile.txt");
-                   Scanner in = new Scanner(inputFile);
-
-
-                   while(in.hasNextLine()){
-                   String line = in.nextLine();
-
-
-public static Customer createCustomerObject(String line){ // this method now returns a customer object
-        String[] list = line.split(" ");
-        double balance = 0f;
-        if (list.length == 4 ) {
-        balance = Integer.valueOf(list[3]);
-        }
-        Customer newCustomer = new Customer(list[0], list[1], list[2], balance);
-        return newCustomer;
-        }
-*/
