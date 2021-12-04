@@ -23,7 +23,7 @@ public class Movie {
     public Movie(String in) {
         String[] splitted = in.split(", ");
         this.id = splitted[0];
-        this.title = "UNKNOWN";
+        this.title = splitted[2];
         this.schedule = splitted[1];
     }
 }

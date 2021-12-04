@@ -51,6 +51,7 @@ public class Login_GUI_Controller {
                 tf_name.getText().compareTo("admin")==0 &&
                 tf_pass.getText().compareTo("admin")==0 ){
             MainApplication.setAdminDashboardScene();
+            return;
         }
 
         String loginEmail = tf_name.getText();

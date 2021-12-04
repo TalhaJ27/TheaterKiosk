@@ -3,11 +3,11 @@ package com.example.demo;
 import java.util.UUID;
 
 public class BookingService {
-    private double PROMO_CODE = .1; //10% discount can be change by ADMIN
-    private double total_cost = 0;  //  Final price of the ticket
-    private double sticket = 13.59; //  Standard ticket price
-    private double pticket = 10.39;  //  Premium ticket cost
-    private double tax = .08875;    // NYC tax
+    private double PROMO_CODE = 0.1f; //10% discount can be change by ADMIN
+    private double total_cost = 0f;  //  Final price of the ticket
+    private double sticket = 13.59f; //  Standard ticket price
+    private double pticket = 10.39f;  //  Premium ticket cost
+    private double tax = 0.08875f;    // NYC tax
     private static BookingService instance = new BookingService(); // eagerly loads the singleton
     private UUID bookingID = UUID.randomUUID();
     private int nump = 0, nums = 0;
@@ -61,11 +61,11 @@ public class BookingService {
         return bookingID;
     }
 
-    public void getTicketPrice(int x, String s) {
+    public double getTicketPrice(int x, String s) {
         // Depending on the input "s" for standard and "p" for premium (ticket) we'll perform different calculations
         if(x <= 0 || x > 9){
             System.out.println("Please enter valid number of tickets (1 - 9)");
-            return;
+            return 0;
         }
 
         if(s=="s"){
@@ -78,7 +78,7 @@ public class BookingService {
         } else {
             System.out.println("Please select one of the available tickets\nStandard Ticket (s)\nPremium Ticket (p)");
         }
-
+        return this.total_cost;
     }
     // Adds discount base on a promoName and Code, promotion is fixed unless changed by Admin
     public void addDiscount(String promo, int code) {

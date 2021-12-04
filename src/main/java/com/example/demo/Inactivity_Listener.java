@@ -20,9 +20,7 @@ public class Inactivity_Listener {
     private Timeline timer;
 
     public Inactivity_Listener(VBox mainPanel) {
-
         timer = new Timeline(new KeyFrame(Duration.seconds(3600), new EventHandler<ActionEvent>() {
-
             @Override
             public void handle(ActionEvent evt) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
