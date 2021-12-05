@@ -60,8 +60,9 @@ public class MainApplication extends Application {
 
 
         /* Talha Jahangir: Test Cases */
-        // some tests
-
+        Customer testCustomer = new Customer("88947252-f12f-4109-8135-1a6b23515984", "Ace D Ventura", "AceeeeeVentura@nomail.com", "910-539-7216");
+        System.out.println(testCustomer.getProxyPhone());
+        System.out.println(testCustomer.getProxyEmail());
 
 
         launch();
