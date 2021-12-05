@@ -16,8 +16,8 @@ public class CancelMovieNotification implements Notification{
     @Override
     public void notifyCustomer() {
         for(Customer c: lis) {
-
+            c.addNotification(this);
         }
-            //c.addNotification(this);
+
     }
 }

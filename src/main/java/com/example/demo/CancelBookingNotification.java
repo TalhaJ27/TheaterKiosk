@@ -18,7 +18,7 @@ public class CancelBookingNotification implements Notification{
         for(Customer c: lis)
             if(c.getId().equals(booking.customerId))
             {
-                // c.addNotification(this);
+                c.addNotification(this);
             }
     }
 }

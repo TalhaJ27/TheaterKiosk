@@ -1,11 +1,15 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer extends Person{
     final String id;
     String  name;
     String email;
     String phone;
     String password = "123";
+    List<Notification> notificationList = new ArrayList<>();
     CustomerProxy proxy;
 
     public String getPassword() {
@@ -62,5 +66,6 @@ public class Customer extends Person{
     String getProxyPhone(){
         return proxy.getProxyPhone();
     }
+    public void addNotification(Notification n) {notificationList.add(n);}
 
 }
