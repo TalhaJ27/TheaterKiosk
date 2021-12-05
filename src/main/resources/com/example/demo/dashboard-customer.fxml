@@ -93,7 +93,7 @@
                </color>
             </DropShadow>
          </effect></Button>
-      <Button fx:id="btn_deleteAccount" mnemonicParsing="false" onAction="#onDeleteAccountButtonClick" prefHeight="25.0" prefWidth="95.0" text="Delete Account" textFill="#e80c0c">
+      <Button fx:id="btn_deleteAccount" mnemonicParsing="false" onAction="#onDeleteAccountButtonClick" prefHeight="25.0" prefWidth="101.0" text="Delete Account" textFill="#e80c0c">
          <VBox.margin>
             <Insets left="320.0" top="-25.0" />
          </VBox.margin>

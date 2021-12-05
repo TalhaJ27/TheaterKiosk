@@ -24,8 +24,6 @@ public class GUI_Controller {
     @FXML
     TextArea text;
     @FXML
-    ListView<Booking> listView;
-    @FXML
      ChoiceBox c001;
     @FXML
      ChoiceBox c002;
@@ -51,6 +49,13 @@ public class GUI_Controller {
     Button backToDashboard;
     @FXML
     TextArea infoText;
+    Button button_newBooking;
+
+    GUI_Controller (){
+
+    }
+
+
 
 
     private ArrayList<Booking> bookings;
