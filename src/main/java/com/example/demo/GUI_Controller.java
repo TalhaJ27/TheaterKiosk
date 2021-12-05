@@ -51,12 +51,6 @@ public class GUI_Controller {
     TextArea infoText;
     Button button_newBooking;
 
-    GUI_Controller (){
-
-    }
-
-
-
 
     private ArrayList<Booking> bookings;
 
