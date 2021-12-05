@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GUI_Controller">
+   <children>
+      <ProgressBar fx:id="bar" layoutX="40.0" layoutY="333.0" prefHeight="13.0" prefWidth="520.0" progress="0.0" />
+      <ImageView fx:id="check" fitHeight="81.0" fitWidth="80.0" layoutX="261.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="241.0" fitWidth="350.0" layoutX="180.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/emv.png" />
+         </image></ImageView>
+      <Button fx:id="backToDashboard" disable="true" layoutX="242.0" layoutY="353.0" mnemonicParsing="false" onAction="#onBackToDashboard" text="Back To Dashboard" />
+   </children>
+</AnchorPane>

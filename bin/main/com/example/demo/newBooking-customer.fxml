@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GUI_Controller">
+   <children>
+      <Button layoutX="529.0" layoutY="367.0" mnemonicParsing="false" onAction="#onMovieChosenConfirm" prefHeight="11.0" prefWidth="57.0" text="Next">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClickInBookingsList" prefHeight="19.0" prefWidth="57.0" text="Back">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="105.0" fitWidth="75.0" layoutX="53.0" layoutY="40.0" pickOnBounds="true">
+         <image>
+            <Image url="@Posters/1_.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="105.0" fitWidth="75.0" layoutX="182.0" layoutY="40.0" pickOnBounds="true">
+         <image>
+            <Image url="@Posters/2_.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="105.0" fitWidth="75.0" layoutX="310.0" layoutY="40.0" pickOnBounds="true">
+         <image>
+            <Image url="@Posters/3_.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="105.0" fitWidth="75.0" layoutX="441.0" layoutY="40.0" pickOnBounds="true">
+         <image>
+            <Image url="@Posters/4_.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="105.0" fitWidth="75.0" layoutX="53.0" layoutY="217.0" pickOnBounds="true">
+         <image>
+            <Image url="@Posters/5_.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="105.0" fitWidth="75.0" layoutX="182.0" layoutY="217.0" pickOnBounds="true">
+         <image>
+            <Image url="@Posters/6_.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="105.0" fitWidth="75.0" layoutX="310.0" layoutY="217.0" pickOnBounds="true">
+         <image>
+            <Image url="@Posters/7_.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="105.0" fitWidth="75.0" layoutX="441.0" layoutY="217.0" pickOnBounds="true">
+         <image>
+            <Image url="@Posters/8_.jpg" />
+         </image></ImageView>
+      <ChoiceBox fx:id="c001" layoutX="66.0" layoutY="162.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="50.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value=" " />
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+               <String fx:value="5" />
+               <String fx:value="6" />
+               <String fx:value="7" />
+               <String fx:value="8" />
+               <String fx:value="9" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <ChoiceBox fx:id="c002" layoutX="195.0" layoutY="162.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="50.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value=" " />
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+               <String fx:value="5" />
+               <String fx:value="6" />
+               <String fx:value="7" />
+               <String fx:value="8" />
+               <String fx:value="9" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <ChoiceBox fx:id="c003" layoutX="323.0" layoutY="162.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="50.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value=" " />
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+               <String fx:value="5" />
+               <String fx:value="6" />
+               <String fx:value="7" />
+               <String fx:value="8" />
+               <String fx:value="9" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <ChoiceBox fx:id="c004" layoutX="454.0" layoutY="162.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="50.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value=" " />
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+               <String fx:value="5" />
+               <String fx:value="6" />
+               <String fx:value="7" />
+               <String fx:value="8" />
+               <String fx:value="9" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <ChoiceBox fx:id="c005" layoutX="66.0" layoutY="336.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="50.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value=" " />
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+               <String fx:value="5" />
+               <String fx:value="6" />
+               <String fx:value="7" />
+               <String fx:value="8" />
+               <String fx:value="9" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <ChoiceBox fx:id="c006" layoutX="195.0" layoutY="336.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="50.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value=" " />
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+               <String fx:value="5" />
+               <String fx:value="6" />
+               <String fx:value="7" />
+               <String fx:value="8" />
+               <String fx:value="9" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <ChoiceBox fx:id="c007" layoutX="323.0" layoutY="336.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="50.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value=" " />
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+               <String fx:value="5" />
+               <String fx:value="6" />
+               <String fx:value="7" />
+               <String fx:value="8" />
+               <String fx:value="9" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <ChoiceBox fx:id="c008" layoutX="454.0" layoutY="336.0" minHeight="-Infinity" prefHeight="27.0" prefWidth="50.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value=" " />
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+               <String fx:value="5" />
+               <String fx:value="6" />
+               <String fx:value="7" />
+               <String fx:value="8" />
+               <String fx:value="9" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <Label layoutX="39.0" layoutY="145.0" text="Dec 24 2021 :: 09:00 PM" textAlignment="CENTER">
+         <effect>
+            <Glow level="0.76" />
+         </effect>
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="168.0" layoutY="145.0" text="Dec 27 2021 :: 09:00 PM" textAlignment="CENTER">
+         <effect>
+            <Glow level="0.76" />
+         </effect>
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="300.0" layoutY="145.0" text="Dec 29 2021 :: 09:00 PM" textAlignment="CENTER">
+         <effect>
+            <Glow level="0.76" />
+         </effect>
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="429.0" layoutY="145.0" text="Dec 29 2021 :: 07:00 PM" textAlignment="CENTER">
+         <effect>
+            <Glow level="0.76" />
+         </effect>
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="322.0" text="Dec 24 2021 :: 04:00 PM" textAlignment="CENTER">
+         <effect>
+            <Glow level="0.76" />
+         </effect>
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="168.0" layoutY="322.0" text="Dec 24 2021 :: 06:00 PM" textAlignment="CENTER">
+         <effect>
+            <Glow level="0.76" />
+         </effect>
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="300.0" layoutY="322.0" text="Dec 28 2021 :: 07:00 PM" textAlignment="CENTER">
+         <effect>
+            <Glow level="0.76" />
+         </effect>
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="429.0" layoutY="322.0" text="Dec 30 2021 :: 09:00 PM" textAlignment="CENTER">
+         <effect>
+            <Glow level="0.76" />
+         </effect>
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

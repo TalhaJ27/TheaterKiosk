@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GUI_Controller">
+    <children>
+        <Pane prefHeight="26.0" prefWidth="600.0">
+            <children>
+                <Button layoutX="545.0" mnemonicParsing="false" onAction="#onCustomerLogoutButtonClick" prefHeight="25.0" prefWidth="56.0" text="Logout" />
+            </children>
+        </Pane>
+      <ImageView fitHeight="91.0" fitWidth="108.0" nodeOrientation="INHERIT" opacity="0.92" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/user.jpg" />
+         </image>
+         <VBox.margin>
+            <Insets left="250.0" top="10.0" />
+         </VBox.margin>
+         <effect>
+            <Glow level="0.24">
+               <input>
+                  <Bloom>
+                     <input>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.7207967638969421" green="0.9736841917037964" blue="0.6761695742607117" />
+                           </color>
+                        </DropShadow>
+                     </input>
+                  </Bloom>
+               </input>
+            </Glow>
+         </effect>
+      </ImageView>
+      <Label fx:id="lbl_customerEmail" alignment="CENTER" prefHeight="20.0" prefWidth="366.0" text="Welcome Back! RebeccaHWehner@nomail.com" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+         <VBox.margin>
+            <Insets left="118.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_newBooking" mnemonicParsing="false" onAction="#onNewBookingButtonClick" text="New Booking" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets left="125.0" top="50.0" />
+         </VBox.margin>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.09527290612459183" green="0.8947368264198303" blue="0.30846327543258667" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Button fx:id="btn_cancelBooking" mnemonicParsing="false" onAction="#onCancelBookingButtonClick" text="Cancel Booking" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets left="250.0" top="-25.0" />
+         </VBox.margin>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.9078947305679321" green="0.10087719559669495" blue="0.10087719559669495" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Button fx:id="btn_viewAllBooking" mnemonicParsing="false" onAction="#onViewAllBooking" text="View All Booking" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets left="385.0" top="-25.0" />
+         </VBox.margin>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.6597222089767456" green="0.75" blue="0.0729166641831398" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Button fx:id="btn_accountInfo" mnemonicParsing="false" onAction="#onAccountInfoButtonClick" text="Account Info" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets left="200.0" top="30.0" />
+         </VBox.margin>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color green="0.9605262875556946" blue="0.5122807025909424" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+      <Button fx:id="btn_deleteAccount" mnemonicParsing="false" onAction="#onDeleteAccountButtonClick" prefHeight="25.0" prefWidth="101.0" text="Delete Account" textFill="#e80c0c">
+         <VBox.margin>
+            <Insets left="320.0" top="-25.0" />
+         </VBox.margin>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX">
+               <color>
+                  <Color red="0.9200000166893005" green="0.10279422253370285" blue="0.04600000008940697" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+    </children>
+</VBox>

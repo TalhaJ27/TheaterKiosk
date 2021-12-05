@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GUI_Controller">
+   <children>
+      <Button layoutX="26.0" layoutY="30.0" mnemonicParsing="false" onAction="#onBackToDashboard" text="Back" />
+      <TextArea fx:id="infoText" editable="false" layoutX="27.0" layoutY="92.0" prefHeight="252.0" prefWidth="541.0" text="John Doe " wrapText="true">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></TextArea>
+   </children>
+</AnchorPane>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="481.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Login_GUI_Controller">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Pane fx:id="pane_main" prefHeight="283.0" prefWidth="600.0">
+      <children>
+         <ImageView fx:id="image_logo" fitHeight="54.0" fitWidth="149.0" layoutX="239.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@logo1.png" />
+            </image>
+         </ImageView>
+         <Label fx:id="label_email" layoutX="179.0" layoutY="147.0" text="Email">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <Label layoutX="179.0" layoutY="182.0" text="Password">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <PasswordField fx:id="tf_pass" layoutX="331.0" layoutY="180.0" opacity="0.43" />
+         <TextField fx:id="tf_name" layoutX="331.0" layoutY="145.0" />
+         <Label fx:id="admin_indicator" layoutX="530.0" layoutY="6.0" text="Admin Mode" textFill="#d32828" />
+         <ChoiceBox fx:id="choiceBox" layoutX="14.0" layoutY="11.0" prefHeight="25.0" prefWidth="90.0" value="Customer">
+            <items>
+               <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Admin" />
+                  <String fx:value="Customer" />
+                  <String fx:value="Guest" />
+               </FXCollections>
+            </items>
+         </ChoiceBox>
+          <Button fx:id="testBtn" layoutX="245.0" layoutY="227.0" onAction="#onOkButtonClick" prefHeight="42.0" prefWidth="111.0" text="Login">
+            <font>
+               <Font size="19.0" />
+            </font>
+         </Button>
+         <Button fx:id="btn_debug" layoutX="538.0" layoutY="253.0" mnemonicParsing="false" onAction="#onDebugClick" text="Debug" />
+      </children>
+      <effect>
+         <Glow />
+      </effect>
+   </Pane>
+   <Hyperlink fx:id="link_signup" onAction="#onSignupClick" onMouseClicked="#onSignupClick" text="Sign Up" />
+</VBox>

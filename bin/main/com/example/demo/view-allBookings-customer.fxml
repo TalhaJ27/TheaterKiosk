@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GUI_Controller">
+   <children>
+      <TextArea fx:id="text" layoutX="29.0" layoutY="89.0" prefHeight="255.0" prefWidth="542.0" />
+      <Button layoutX="29.0" layoutY="37.0" mnemonicParsing="false" onAction="#onBackButtonClickInBookingsList" prefHeight="11.0" prefWidth="57.0" text="Back">
+         <font>
+            <Font size="9.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

@@ -9,7 +9,7 @@ public class BookingService {
     private double pticket = 10.39f;  //  Premium ticket cost
     private double tax = 0.08875f;    // NYC tax
     private static BookingService instance = new BookingService(); // eagerly loads the singleton
-    private UUID bookingID = UUID.randomUUID();
+    private UUID bookingID = UUID.randomUUID(); // Specifc transaction ID
     private int nump = 0, nums = 0;
     private String transanctionType = "";
     private BookingService() {
