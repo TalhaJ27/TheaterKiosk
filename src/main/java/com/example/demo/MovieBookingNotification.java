@@ -15,8 +15,10 @@ public class MovieBookingNotification implements Notification{
 
     @Override
     public void notifyCustomer() {
-        for(Customer c: lis)
-            if(c.getId().equals(booking.customerId))
-                c.addNotification(this);
+        for(Customer c: lis) {
+
+        }
+//            if(c.getId().equals(booking.customerId))
+//                c.addNotification(this);
     }
 }

@@ -17,8 +17,11 @@ public class AddMovieNotification implements Notification{
 
     @Override
     public void notifyCustomer() {
-        for(Customer c: lis)
-            c.addNotification(this);
+        for(Customer c: lis) {
+
+        }
+
+            // c.addNotification(this);
     }
 
     public static void main(String[] args) {

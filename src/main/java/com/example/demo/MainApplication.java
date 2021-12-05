@@ -33,6 +33,11 @@ public class MainApplication extends Application {
 
 
     public static void main(String[] args) throws FileNotFoundException {
+        Customers = Database_Adapter.initializeCustomers();
+        Bookings = Database_Adapter.initializeBookings();
+        currentMovies = Database_Adapter.initializeMovies();
+
+
 
         /* Elvis Moyolema: Test Cases */
         // Stating transaction type
@@ -44,10 +49,13 @@ public class MainApplication extends Application {
 
 
 
+
+
+
+
+
         /* Md Rahman: Test Cases */
-        Customers = Database_Adapter.initializeCustomers();
-        Bookings = Database_Adapter.initializeBookings();
-        currentMovies = Database_Adapter.initializeMovies();
+
 
 
 

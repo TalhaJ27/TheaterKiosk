@@ -6,6 +6,7 @@ public class Customer extends Person{
     String email;
     String phone;
     String password = "123";
+    // Proxy p;
 
     public String getPassword() {
         return password;
@@ -42,6 +43,7 @@ public class Customer extends Person{
         this.name = name;
         this.email = email;
         this.phone = phone;
+       //  this.p = new Proxy(this);
     }
     @Override
     public String toString() {
@@ -52,4 +54,8 @@ public class Customer extends Person{
                 ", phone='" + phone + '\'' +
                 '}';
     }
+
+//    String getProxyEmail(){
+//        p.getProxyEmail(); // ashik.shovon03@gmail.com => a********03@gmail.com
+//    }
 }
